@@ -10,62 +10,30 @@ class XylophoneApp extends StatelessWidget {
         player.play('note$soundNumber.wav');
       };
 
+  Widget buildKey(int soundNumber, Color color) => Expanded(
+        child: FlatButton(
+          color: color,
+          onPressed: getPlaySound(soundNumber),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              FlatButton(
-                onPressed: getPlaySound(1),
-                child: Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-              ),
-              FlatButton(
-                onPressed: getPlaySound(2),
-                child: Container(
-                  color: Colors.orange,
-                  height: 50,
-                ),
-              ),
-              FlatButton(
-                onPressed: getPlaySound(3),
-                child: Container(
-                  color: Colors.yellow,
-                  height: 50,
-                ),
-              ),
-              FlatButton(
-                onPressed: getPlaySound(4),
-                child: Container(
-                  color: Colors.green,
-                  height: 50,
-                ),
-              ),
-              FlatButton(
-                onPressed: getPlaySound(5),
-                child: Container(
-                  color: Colors.teal,
-                  height: 50,
-                ),
-              ),
-              FlatButton(
-                onPressed: getPlaySound(6),
-                child: Container(
-                  color: Colors.blue,
-                  height: 50,
-                ),
-              ),
-              FlatButton(
-                onPressed: getPlaySound(7),
-                child: Container(
-                  color: Colors.purple,
-                  height: 50,
-                ),
-              ),
+              buildKey(1, Colors.red),
+              buildKey(2, Colors.orange),
+              buildKey(3, Colors.yellow),
+              buildKey(4, Colors.green),
+              buildKey(5, Colors.teal),
+              buildKey(6, Colors.blue),
+              buildKey(7, Colors.purple),
             ],
           ),
         ),
